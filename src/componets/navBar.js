@@ -1,5 +1,7 @@
 import React, { Component, Fragment } from "react";
 import logo from "../logo.png";
+import CardWidget from "./CardWidget";
+import ItemListContainer from "./ItemListContainer";
 
 const NavBar = () => {
   return (
@@ -42,6 +44,7 @@ const NavBar = () => {
                 </a>
               </li>
             </ul>
+            <CardWidget />
 
             <form className="d-flex" name="Form">
               <input
