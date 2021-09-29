@@ -19,10 +19,9 @@ function ItemListContainer() {
               Steve wants to add you to the group <strong>best friends</strong>
             </Card.Description>
           </Card.Content>
-          <Card.Content extra>
-            <ItemCount stock="15" initial="1" />
-          </Card.Content>
+          <ItemCount stock="15" initial="1" />
         </Card>
+
         <Card>
           <Card.Content>
             <Image
@@ -38,6 +37,7 @@ function ItemListContainer() {
           </Card.Content>
           <ItemCount stock="5" initial="1" />
         </Card>
+
         <Card>
           <Card.Content>
             <Image
@@ -51,9 +51,7 @@ function ItemListContainer() {
               Jenny requested permission to view your contact details
             </Card.Description>
           </Card.Content>
-          <Card.Content extra>
-            <ItemCount stock="10" initial="1" />
-          </Card.Content>
+          <ItemCount stock="10" initial="1" />
         </Card>
       </Card.Group>
     </div>

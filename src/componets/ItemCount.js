@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
-
 import { Button } from "semantic-ui-react";
+import "../App.css";
 
 const ItemCount = ({ stock, initial }) => {
   const [contador, setContador] = useState(parseInt(initial));
@@ -19,12 +19,12 @@ const ItemCount = ({ stock, initial }) => {
   };
 
   return (
-    <div class="">
-      <Button color="green" onClick={addProduct}>
+    <div className="">
+      <Button className="addProduct" color="green" onClick={addProduct}>
         +
       </Button>
-      <p color="black">{contador}</p>
-      <Button color="red" onClick={subsProduct}>
+      <p>{contador}</p>
+      <Button className="subsProduct" color="red" onClick={subsProduct}>
         -
       </Button>
     </div>
