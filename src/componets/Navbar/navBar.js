@@ -1,7 +1,6 @@
 import React, { Component, Fragment } from "react";
-import logo from "../logo.png";
-import CardWidget from "./CardWidget";
-import ItemListContainer from "./ItemListContainer";
+import logo from "../../logo.png";
+import CardWidget from "../CardWidget/CardWidget.js";
 
 const NavBar = () => {
   return (

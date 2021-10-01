@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { Button } from "semantic-ui-react";
-import "../App.css";
+import "./ItemCount.css";
 
 const ItemCount = ({ stock, initial }) => {
   const [contador, setContador] = useState(parseInt(initial));
@@ -13,7 +13,7 @@ const ItemCount = ({ stock, initial }) => {
   };
 
   const subsProduct = () => {
-    if (contador > 0) {
+    if (contador > 1) {
       setContador(contador - 1);
     }
   };
