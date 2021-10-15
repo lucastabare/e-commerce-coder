@@ -1,34 +1,58 @@
-import React from "react";
-import { useState } from "react";
-import { Button } from "semantic-ui-react";
-import "./ItemCount.css";
+import { useState, useEffect } from "react";
+import { InputGroup, Button, FormControl } from "react-bootstrap";
 
-const ItemCount = ({ stock, initial }) => {
-  const [contador, setContador] = useState(parseInt(initial));
+function ItemCount(props) {
+  const { stock, initial, onAdd } = props.props;
 
-  const addProduct = () => {
-    if (contador < stock) {
-      setContador(contador + 1);
+  const [cantidad, setCantidad] = useState(initial);
+  const [actualStock, setActualStock] = useState(stock);
+
+  const add = () => {
+    if (cantidad <= stock - 1) {
+      setCantidad(cantidad + 1);
     }
   };
 
-  const subsProduct = () => {
-    if (contador > 1) {
-      setContador(contador - 1);
+  const substract = () => {
+    if (cantidad > initial) {
+      setCantidad(cantidad - 1);
     }
   };
 
   return (
-    <div className="">
-      <Button className="addProduct" color="green" onClick={addProduct}>
-        +
-      </Button>
-      <p>{contador}</p>
-      <Button className="subsProduct" color="red" onClick={subsProduct}>
-        -
+    <div>
+      <p>Cantidad Disponible: {actualStock}</p>
+      <InputGroup className="mb-3 form-calculator-minmax">
+        <Button
+          variant="outline-secondary"
+          id="button.addon1"
+          onClick={substract}
+        >
+          -
+        </Button>
+        <FormControl
+          aria-label="Example text with button addon"
+          aria-describedby="basic-addon1"
+          value={cantidad}
+          readOnly
+        />
+        <Button variant="outline-secondary" id="button-addon1" onClick={add}>
+          +
+        </Button>
+      </InputGroup>
+      <Button
+        variant="primary"
+        onClick={() => {
+          actualStock >= cantidad &&
+            setActualStock(onAdd(actualStock, cantidad));
+          cantidad > actualStock &&
+            alert("No queda mas Stock del producto selecionado");
+        }}
+      >
+        Agregar al carrito
       </Button>
     </div>
   );
-};
+}
 
 export default ItemCount;

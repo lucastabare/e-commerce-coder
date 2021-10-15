@@ -1,13 +1,32 @@
-import React from "react";
-import ItemCount from "../ItemCount/ItemCount.js";
+import { useState, useEffect } from "react";
 import ItemList from "../ItemList/ItemList.js";
+import { Row, Col } from "react-bootstrap";
+
+import dataProductos from "../data/productos.json";
 
 function ItemListContainer() {
+  const [producList, setProduc] = useState(0);
+
+  useEffect(() => {
+    const traerData = new Promise((resolve, reject) => {
+      setTimeout(function () {
+        resolve(dataProductos);
+      }, 2000);
+    });
+
+    traerData.then((response) => {
+      setProduc(response);
+    });
+  }, []);
+
   return (
-    <div>
-      <ItemList />;
-      <ItemCount stock="15" initial="1" />
-    </div>
+    <>
+      <Row className="item-list-container">
+        <Col md={12} className="d-flex justify-content-center">
+          <ItemList items={producList} />
+        </Col>
+      </Row>
+    </>
   );
 }
 
