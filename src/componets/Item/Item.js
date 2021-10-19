@@ -1,26 +1,31 @@
-import { Card, Badge } from "react-bootstrap";
-import ItemDetailContainer from "../ItemDetailContainer/ItemDetailContainer.js";
+import React from "react";
+import { Card, Image } from "semantic-ui-react";
 
-function Item(props) {
-  const { title, picUrl, stock } = props.props;
-
-  return (
-    <div className="col-sm-6 col-md-3">
-      <Card>
-        <Card.Img variant="top" src={picUrl} width="60%">
-          <Card.Body>
-            <Card.Title>{title}</Card.Title>
-            <Card.Text>
-              <div style={{ textAlign: "center" }}>
-                <Badge bg="success"> Stock: {stock}</Badge>
-              </div>
-            </Card.Text>
-            <ItemDetailContainer props={props.props} />
-          </Card.Body>
-        </Card.Img>
-      </Card>
-    </div>
-  );
+function randomNum(max) {
+  return Math.floor(Math.random() * max);
 }
+
+const Item = ({ data }) => (
+  <Card>
+    <Image className="img" src={data.avatar_url} wrapped ui={false} />
+    <Card.Content>
+      <Card.Header>
+        {" "}
+        <span className="info">Nombre de Usuario: {data.login}</span>{" "}
+      </Card.Header>
+      <Card.Meta>
+        {" "}
+        <span className="info">
+          {" "}
+          {data.login} Es es Usuario N° {data.id} en Registrarse
+        </span>{" "}
+      </Card.Meta>
+      <Card.Description>
+        {" "}
+        <span className="info">Su node id es: {data.node_id} </span>{" "}
+      </Card.Description>
+    </Card.Content>
+  </Card>
+);
 
 export default Item;

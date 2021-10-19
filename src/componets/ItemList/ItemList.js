@@ -1,16 +1,25 @@
-import { Spinner } from "react-bootstrap";
+import React, { useEffect, useState } from "react";
 import Item from "../Item/Item.js";
 
-function ItemList({ items }) {
-  return (
-    <>
-      {items.length ? (
-        items.map((elem, idx) => <Item props={elem} key={idx} />)
-      ) : (
-        <Spinner animation="border" variant="primary" />
-      )}
-    </>
-  );
-}
+const ItemList = () => {
+  const [users, setUsers] = useState([]);
 
+  useEffect(() => {
+    fetch("https://api.github.com/users")
+      .then((response) => response.json())
+      .then((data) => setUsers(data));
+  }, []);
+
+  return (
+    <div>
+      {users.map((user) => {
+        return (
+          <div key={user.id}>
+            <Item data={user} />
+          </div>
+        );
+      })}
+    </div>
+  );
+};
 export default ItemList;

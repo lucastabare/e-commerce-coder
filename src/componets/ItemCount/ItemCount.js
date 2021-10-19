@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { InputGroup, Button, FormControl } from "react-bootstrap";
 
 function ItemCount(props) {

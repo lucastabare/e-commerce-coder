@@ -13,7 +13,7 @@ const ItemDatail = (props) => {
     precio: price,
   };
   return (
-    <>
+    <Fragment>
       <Modal.Header closeButton>
         <Modal.Title>{title}</Modal.Title>
       </Modal.Header>
@@ -36,7 +36,7 @@ const ItemDatail = (props) => {
           </Card.Body>
         </Card>
       </Modal.Body>
-    </>
+    </Fragment>
   );
 };
 
