@@ -1,14 +1,16 @@
 import React, { Component, Fragment } from "react";
 import logo from "../../logo.png";
 import CardWidget from "../CardWidget/CardWidget.js";
+import { Link } from "react-router-dom";
 
 const NavBar = () => {
   return (
     <React.Fragment>
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark ">
         <div className="container-fluid ">
-          <img src={logo} alt="" className="logo" />
-
+          <Link to="/">
+          <img src={logo} alt="" className="logo"  />
+          </Link>
           <button
             className="navbar-toggler"
             type="button"
@@ -23,24 +25,14 @@ const NavBar = () => {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                <a className="navbar-brand" aria-current="page" href="#">
+                <Link className="navbar-brand" aria-current="page" to="/marcas">
                   Marcas
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
-                <a className="navbar-brand" href="#">
+                <Link className="navbar-brand" to="/contacto">
                   Contacto
-                </a>
-              </li>
-              <li className="nav-item">
-                <a className="navbar-brand" aria-current="page" href="#">
-                  Mis Pedidos
-                </a>
-              </li>
-              <li className="nav-item">
-                <a className="navbar-brand" aria-current="page" href="#">
-                  ARMA TU PC
-                </a>
+                </Link>
               </li>
             </ul>
             <CardWidget />

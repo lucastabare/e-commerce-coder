@@ -3,13 +3,14 @@ import React, { useState, useEffect } from "react";
 
 const ItemList = () => {
   const [users, setUser] = useState([]);
+  
 
   useEffect(() => {
-    fetch("../../data/prodcutos.json")
+    fetch("../../data/productos.json")
       .then((response) => response.json())
       .then((data) => setUser(data));
-  });
-
+  },[]);
+  
   return (
     <div>
       <h1>Productos</h1>
