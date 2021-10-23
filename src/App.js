@@ -1,25 +1,20 @@
-import React, { Component, Fragment } from "react";
+import React, {  Fragment } from "react";
 import "./App.css";
 import NavBar from "./componets/Navbar/navBar.js";
 import "bootstrap/dist/css/bootstrap.css";
-import ItemList from "./componets/ItemList/ItemList";
 import ItemListContainer from "./componets/ItemListContainer/ItemListContainer";
+import Carrusel from "./componets/Carrusel/Carrusel";
 
 function App() {
   return (
-    <>
+    <Fragment>
       <div className="App">
         <NavBar />
-        <h1>E-commerce Fenix</h1>
-        <p>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aliquid quia
-          tempore, quidem mollitia sapiente obcaecati dolores velit distinctio
-          sed dolorem officiis asperiores laborum perferendis harum suscipit
-          omnis dolorum earum sequi.
-        </p>
+        <h1>Tienda Fenix</h1>
+        <Carrusel/>
         <ItemListContainer />
       </div>
-    </>
+      </Fragment>
   );
 }
 

@@ -1,22 +1,14 @@
-import { Modal, Button } from "react-bootstrap";
-import { useState } from "react";
-import ItemDatail from "../ItemDatail/ItemDatail.js";
+import React from "react";
+import ItemCount from "../ItemCount/ItemCount.js";
+import ItemList from "../ItemList/ItemList.js";
 
-const ItemDetailContainer = (props) => {
-  const [show, setShow] = useState(false);
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
-
+function ItemListContainer() {
   return (
-    <>
-      <Button variant="warning" onClick={handleShow} style={{ width: "100%" }}>
-        Detalles
-      </Button>
-      <Modal show={show} onHide={handleClose}>
-        <ItemDatail props={props.props} />
-      </Modal>
-    </>
+    <div>
+      <ItemList />;
+      <ItemCount stock="15" initial="1" />
+    </div>
   );
-};
+}
 
-export default ItemDetailContainer;
+export default ItemListContainer;

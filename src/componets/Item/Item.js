@@ -1,26 +1,17 @@
-import { Card, Badge } from "react-bootstrap";
-import ItemDetailContainer from "../ItemDetailContainer/ItemDetailContainer.js";
+import { Card, Image } from "semantic-ui-react";
 
-function Item(props) {
-  const { title, picUrl, stock } = props.props;
-
+const Item = ({ data }) => {
   return (
-    <div className="col-sm-6 col-md-3">
+    <div className="UserCard UserSection">
       <Card>
-        <Card.Img variant="top" src={picUrl} width="60%">
-          <Card.Body>
-            <Card.Title>{title}</Card.Title>
-            <Card.Text>
-              <div style={{ textAlign: "center" }}>
-                <Badge bg="success"> Stock: {stock}</Badge>
-              </div>
-            </Card.Text>
-            <ItemDetailContainer props={props.props} />
-          </Card.Body>
-        </Card.Img>
+        <Card.Content>
+          <Image src={data.img} wrapped ui={false} />
+          <Card.Header>{data.producto}</Card.Header>
+          <Card.Meta>{data.precio}</Card.Meta>
+        </Card.Content>
       </Card>
     </div>
   );
-}
+};
 
 export default Item;

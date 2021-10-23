@@ -1,58 +1,34 @@
-import { useState, useEffect } from "react";
-import { InputGroup, Button, FormControl } from "react-bootstrap";
+import React from "react";
+import { useState } from "react";
 
-function ItemCount(props) {
-  const { stock, initial, onAdd } = props.props;
+import { Button } from "semantic-ui-react";
 
-  const [cantidad, setCantidad] = useState(initial);
-  const [actualStock, setActualStock] = useState(stock);
+const ItemCount = ({ stock, initial }) => {
+  const [contador, setContador] = useState(parseInt(initial));
 
-  const add = () => {
-    if (cantidad <= stock - 1) {
-      setCantidad(cantidad + 1);
+  const addProduct = () => {
+    if (contador < stock) {
+      setContador(contador + 1);
     }
   };
 
-  const substract = () => {
-    if (cantidad > initial) {
-      setCantidad(cantidad - 1);
+  const subsProduct = () => {
+    if (contador > 0) {
+      setContador(contador - 1);
     }
   };
 
   return (
-    <div>
-      <p>Cantidad Disponible: {actualStock}</p>
-      <InputGroup className="mb-3 form-calculator-minmax">
-        <Button
-          variant="outline-secondary"
-          id="button.addon1"
-          onClick={substract}
-        >
-          -
-        </Button>
-        <FormControl
-          aria-label="Example text with button addon"
-          aria-describedby="basic-addon1"
-          value={cantidad}
-          readOnly
-        />
-        <Button variant="outline-secondary" id="button-addon1" onClick={add}>
-          +
-        </Button>
-      </InputGroup>
-      <Button
-        variant="primary"
-        onClick={() => {
-          actualStock >= cantidad &&
-            setActualStock(onAdd(actualStock, cantidad));
-          cantidad > actualStock &&
-            alert("No queda mas Stock del producto selecionado");
-        }}
-      >
-        Agregar al carrito
+    <div class="">
+      <Button color="green" onClick={addProduct}>
+        +
+      </Button>
+      <p color="black">{contador}</p>
+      <Button color="red" onClick={subsProduct}>
+        -
       </Button>
     </div>
   );
-}
+};
 
 export default ItemCount;
