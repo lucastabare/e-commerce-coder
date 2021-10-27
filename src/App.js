@@ -1,9 +1,7 @@
-import React, { Fragment } from "react";
+import React from "react";
 import "./App.css";
 import NavBar from "./componets/Navbar/navBar.js";
 import "bootstrap/dist/css/bootstrap.css";
-import ItemListContainer from "./componets/ItemListContainer/ItemListContainer";
-import Carrusel from "./componets/Carrusel/Carrusel";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
 
 import Home from "./componets/Views/Home.js"
