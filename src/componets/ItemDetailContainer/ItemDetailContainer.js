@@ -1,14 +1,20 @@
-import React from "react";
-import ItemCount from "../ItemCount/ItemCount.js";
-import ItemList from "../ItemList/ItemList.js";
+/* import React,{useEffect,useState} from 'react';
+import axios from 'axios';
 
-function ItemListContainer() {
-  return (
-    <div>
-      <ItemList />;
-      <ItemCount stock="15" initial="1" />
-    </div>
-  );
+import ItemDetail from '../ItemDetail/ItemDetail.js';
+
+const ItemDetailContainer = ({match}) => {
+
+    let detaId = match.params.id;
+    const [detalles,setDetalles]=useState([]);
+    
+    useEffect(()=>{
+        axios(`https://fakestoreapi.com/products/${detaId}`).then(res => {setDetalles(res.data)})
+        
+    },[detaId])
+
+    return (
+        <ItemDetail data={detalles}/>
+    )
 }
-
-export default ItemListContainer;
+export default ItemDetailContainer */

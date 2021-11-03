@@ -1,5 +1,6 @@
-import { Card, Image } from "semantic-ui-react";
-import ItemCount from "../ItemCount/ItemCount.js";
+import { Link } from "react-router-dom";
+import { Card, Image, Button } from "semantic-ui-react";
+
 
 const Item = ({ data }) => {
   return (
@@ -9,10 +10,9 @@ const Item = ({ data }) => {
           <Image src={data.img} wrapped ui={false} width="150px" />
           <Card.Header>{data.title}</Card.Header>
           <Card.Meta>{data.price}</Card.Meta>
-          <Card.Meta>{data.description}</Card.Meta>
           <Card.Meta>{data.stock}</Card.Meta>
+          <Link to="/itemdetail"><Button positive>Agregar al carrito</Button></Link>
         </Card.Content>
-        <ItemCount />
       </Card>
     </div>
   );

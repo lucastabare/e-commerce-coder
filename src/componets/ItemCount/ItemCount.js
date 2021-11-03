@@ -1,34 +1,28 @@
-import React from "react";
-import { useState } from "react";
+import React,{useState} from 'react';
 
-import { Button } from "semantic-ui-react";
+const ItemCount = ({stock,initial,onClick}) => {
 
-const ItemCount = ({ stock, initial }) => {
-  const [contador, setContador] = useState(parseInt(initial));
+    const [contador,setContador] = useState(parseInt(initial));
 
-  const addProduct = () => {
-    if (contador < stock) {
-      setContador(contador + 1);
-    }
-  };
+    const incrementar = ()=>{
+        if (contador < stock) {
+            setContador(contador + 1)
+        }  
+    };
+    
+    const desIncrementar = ()=>{
+        if (contador > 0 ) {
+            setContador(contador - 1)
+        }   
+    };
 
-  const subsProduct = () => {
-    if (contador > 0) {
-      setContador(contador - 1);
-    }
-  };
-
-  return (
-    <div class="">
-      <Button color="green" onClick={addProduct}>
-        +
-      </Button>
-      <p color="black">{contador}</p>
-      <Button color="red" onClick={subsProduct}>
-        -
-      </Button>
-    </div>
-  );
-};
-
+    return (
+        <div className="contenedorContador">
+            <button className="btn" onClick={desIncrementar}>-</button>
+            <p>{contador}</p>
+            <button className="btn" onClick={incrementar}>+</button> 
+            <button className="btn_activo" onClick={()=>onClick(contador)}>Agregar Carrito</button>
+        </div>
+    )
+}
 export default ItemCount;
